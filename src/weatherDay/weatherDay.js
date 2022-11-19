@@ -1,6 +1,6 @@
 import React from "react";
 import "./weatherDay.css";
-import { WiDayCloudyWindy, WiCloudy } from "react-icons/wi";
+import { WiDayCloudyWindy } from "react-icons/wi";
 const WeatherDay = ({ index, min, max, weatherType, windSpeed }) => {
   return (
     <>
@@ -9,16 +9,14 @@ const WeatherDay = ({ index, min, max, weatherType, windSpeed }) => {
           <tbody>
             <tr>
               <td>
-                <WiDayCloudyWindy /> DAY{index + 1}{" "}
+                <WiDayCloudyWindy />
+                DAY {index + 1}{" "}
               </td>
-              <td>{min}</td>
+              <td>{min}°F</td>
 
-              <td>{max}</td>
+              <td>{max}°F</td>
               <td>{weatherType}</td>
-              <td>
-                <WiCloudy />
-                {windSpeed}
-              </td>
+              <td>{windSpeed}mph</td>
             </tr>
           </tbody>
         </table>

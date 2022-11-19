@@ -15,7 +15,7 @@ const Home = ({setValueprop}) => {
     const handleKeyPress = (event) => {
         if(event.key === 13){
           console.log('enter press here! ')
-          
+          setValueprop(value)
         }
       }
 
@@ -24,13 +24,29 @@ const Home = ({setValueprop}) => {
 
   return (
         <>
-        
+  <div class="ocean">
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
       <div class="search-box">
     <button class="btn-search" onKeyUp={handleKeyPress}><i class="fas fa-search"></i></button>
     <input type="text" class="input-search" placeholder="Search"
      value={value} onChange={getValue}/>
      <button onClick={passValue} >Search</button>
     </div>
+     <div>
+      <table>
+     <tr >
+        <th scope="col">Day</th>
+        <th scope="col">Temp Min</th>
+        <th scope="col">Temp Max</th>
+        <th scope="col">Weather Condition</th>
+        <th scope="col">Wind Speed</th>
+
+
+    </tr>
+    </table>
+     </div>
     </>
   )
 }

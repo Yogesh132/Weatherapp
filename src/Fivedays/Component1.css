@@ -1,4 +1,35 @@
+.leftarrow{
 
+    margin-left: 32px;
+    color: yellow;
+    height: 40px;
+    width: 60px;
+    margin-top: 13px;
+    margin-bottom: 10px;
+
+
+}
+
+
+  table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-content{
+    height:auto;
+    margin-top: 20px;
+  }
+  td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 20px;
+    color: rgb(56, 7, 7);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.945);
+  }  
+  
+ 
   table{
     width:100%;
     table-layout: fixed;

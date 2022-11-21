@@ -1,52 +1,54 @@
 import React from 'react'
-import { useState } from 'react'
 import './Home.css'
+import {Link} from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+
+
 
 const Home = ({setValueprop}) => {
-    const [value,setValue] =useState('')
-
-    const getValue =(e) =>{
-        setValue(e.target.value)
-    }
-    const passValue =()=>
-    {
-        setValueprop(value)
-    }
-    const handleKeyPress = (event) => {
-        if(event.key === 13){
-          console.log('enter press here! ')
-          setValueprop(value)
-        }
-      }
-
     
 
-
+const setValue = (e)=>{
+  let newvalue=document.getElementById(`value123`).value
+  setValueprop(newvalue)
+}
   return (
         <>
   <div class="ocean">
   <div class="wave"></div>
   <div class="wave"></div>
 </div>
-      <div class="search-box">
-    <button class="btn-search" onKeyUp={handleKeyPress}><i class="fas fa-search"></i></button>
-    <input type="text" class="input-search" placeholder="Search"
-     value={value} onChange={getValue}/>
-     <button onClick={passValue} >Search</button>
+    <div>
+{/* <input type="text" id='value123'/> */}
+{/* <button onClick={setValue}>Submit</button> */}
+{/* <button class="glow-on-hover" type="button" onClick={setValue}>SUBMIT</button> */}
+
+
+<button className='one' type='button'>
+
+<Link to="/five" >Five Days Weather Forcast</Link>
+</button>
+
+
     </div>
-     <div>
-      <table>
-     <tr >
-        <th scope="col">Day</th>
-        <th scope="col">Temp Min</th>
-        <th scope="col">Temp Max</th>
-        <th scope="col">Weather Condition</th>
-        <th scope="col">Wind Speed</th>
+    
+<div>
 
 
-    </tr>
-    </table>
-     </div>
+<div class="searchBox">
+
+<input className="searchInput"type="text" id='value123'  placeholder="Search"/>
+<button className="searchButton"type="button" onClick={setValue} >
+  
+    <>
+   <FaSearch />
+    </>
+</button>
+</div>
+
+</div>
+
+
     </>
   )
 }

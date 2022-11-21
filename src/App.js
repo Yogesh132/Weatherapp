@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import Home from "./pages/Home";
-import WeatherDay from "./weatherDay/weatherDay";
+import Temp from "./pages/Temp";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Component1 from "./Fivedays/Component1";
+import Component2 from "./Fivedays/Component2";
+import Component3 from "./Fivedays/Component3";
 
 function App() {
   const [city, setCity] = useState("pokhara");
@@ -9,7 +13,7 @@ function App() {
   const [weatherInfo, setWeatherInfo] = useState();
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=5&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=5&appid=${apiKey}&units=metric`
     )
       .then((res) => res.json())
       .then((res) =>
@@ -29,30 +33,45 @@ function App() {
 
   //checking objects
 
+  /* 
+<!--  -->
+
+
+
+*/
+
   // useEffect(() => {
   //   console.log(weatherInfo);
   // }, [weatherInfo]);
 
   const setValue = (parameter) => {
+    console.log("para", parameter);
     setCity(parameter);
-    console.log(parameter);
   };
   return (
     <>
-      <Home setValueprop={setValue} />
-
-      {!!weatherInfo &&
-        weatherInfo.map((i, index) => (
-          <div key={index}>
-            <WeatherDay
-              index={index}
-              min={i.min}
-              max={i.max}
-              weatherType={i.weatherType}
-              windSpeed={i.windSpeed}
-            />
-          </div>
-        ))}
+      <Router>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <div>
+                <Home setValueprop={setValue} /> <Temp city1={city} />{" "}
+              </div>
+            }
+          />
+          <Route
+            path="/five"
+            element={
+              <div>
+                <Component1 /> <Component2 weatherIn={weatherInfo} />{" "}
+                <Component3 />
+              </div>
+            }
+          />
+        </Routes>
+      </Router>
     </>
   );
 }

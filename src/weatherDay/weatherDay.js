@@ -12,9 +12,9 @@ const WeatherDay = ({ index, min, max, weatherType, windSpeed }) => {
                 <WiDayCloudyWindy />
                 DAY {index + 1}{" "}
               </td>
-              <td>{min}°F</td>
+              <td>{min}°C</td>
 
-              <td>{max}°F</td>
+              <td>{max}°C</td>
               <td>{weatherType}</td>
               <td>{windSpeed}mph</td>
             </tr>

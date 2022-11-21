@@ -3,6 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 body {
   background: linear-gradient(90deg, #7474BF 10%, #348AC7 90%);
+  overflow: hidden;
 }
 .weather_wrapper{
   margin-top: 150px;
